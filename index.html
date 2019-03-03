@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>LightIT_second_stage &copy</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.3.0/lodash.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="./style.css">
+  <link rel="stylesheet" type="text/css" href="./preloader.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+</head>
+
+<body>
+  <div id="cube-loader">
+    <div class="caption">
+      <div class="cube-loader">
+        <div class="cube loader-1"></div>
+        <div class="cube loader-2"></div>
+        <div class="cube loader-4"></div>
+        <div class="cube loader-3"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="container"></div>
+
+  <script src="./script.js">
+  </script>
+
+  <script type="text/template" id="template-grid">
+    <div id="diagram">
+        <canvas id="myChart" width="400px" height="180px"></canvas>
+        <div class="close"><img src="./img/close.png" alt=""></div>
+    </div>
+    <nav>
+        <input type="text" id="input-search">
+        <button id="search">Search</button>
+        <button id="show-chart">Show chart</button>
+    </nav>
+    <div class="content-header">
+      <div></div>
+      <span>Last</span>
+      <span>First</span>
+      <span>Username</span>
+      <span>Phone</span>
+      <span>Location</span>
+      <div></div>
+    </div>
+    <% for(let i = 0; i < list.length; i++) { %>
+      <div class="item" data-gender="<%=list[i].gender%>">
+        <div class="main-info">
+          <div><img class="photo" src="<%=list[i].picture.medium%>" alt="photo"></div>
+          <span class="last-name"><i><%=list[i].name.last%></i></span>
+          <span class="first-name"><i><%=list[i].name.first%></i></span>
+          <span class="user-name"><%=list[i].login.username%></span>
+          <span class="phone-number"><%=list[i].phone%></span>
+          <span class="location"><%=list[i].location.state%></span>
+          <div  class="plus">
+            <div>
+              <div class="horizontal"><div class="vertical"></div></div>
+            </div>
+        </div>
+        </div>
+        <div class="additional-info hidden">
+            <div class="first-name">
+              <i><%=list[i].name.first%></i>
+              <div class="gender-image"><img data-gender="<%=list[i].gender%>" src="" alt=""></div>
+            </div>
+            <div>
+              <div class="register-info">
+                <span><strong>Username &nbsp</strong><%=list[i].login.username%></span>
+                <span><strong>Registered &nbsp</strong><span class="date"><%=list[i].registered.date%></span></span>
+                <span><strong>Email &nbsp</strong><%=list[i].email%></span>
+              </div>
+              <div class="adress-info">
+                <span><strong>Adress &nbsp</strong><%=list[i].location.street%></span>
+                <span><strong>City &nbsp</strong><%=list[i].location.city%></span>
+                <span><strong>Zip Code &nbsp</strong><%=list[i].location.postcode%></span>
+              </div>
+              <div class="dob-and-phone">
+                <span><strong>Birthday &nbsp</strong><span class="date"><%=list[i].dob.date%></span></span>
+                <span><strong>Phone &nbsp</strong><%=list[i].phone%></span>
+                <span><strong>Cell &nbsp</strong><%=list[i].cell%></span>
+              </div>
+              <div><img class="photo" src="<%=list[i].picture.large%>" alt="photo"></div>
+          </div>
+        </div>
+      </div>
+    <% }; %>
+  </script>
+</body>
+
+</html>
